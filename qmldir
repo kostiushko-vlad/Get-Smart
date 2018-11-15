@@ -1,0 +1,2 @@
+module Helpers
+singleton Helpers 1.0 Helpers.qml

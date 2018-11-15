@@ -1,0 +1,85 @@
+[{
+  "name":"News",
+  "feeds":[{
+    "name":"Wallstreet Journal",
+    "image":"https://ore.wsj.net/fp/assets/images/ico/WSJ_facebook.png",
+    "url":"http://online.wsj.com/xml/rss/3_7011.xml"
+  },
+  {
+    "name":"Fox News Science",
+    "image":"https://assets3.thrillist.com/v1/image/2344851/size/tl-author_web.jpg",
+    "url":"http://feeds.foxnews.com/foxnews/scitech"
+  },
+  {
+    "name":"CNN – Top Stories",
+    "image":"https://cdn.cnn.com/cnn/.e/img/3.0/global/misc/cnn-logo.png",
+    "url":"http://online.wsj.com/xml/rss/3_7011.xml"
+  },
+  {
+    "name":"Yahoo",
+    "image":"https://images.techhive.com/images/article/2013/06/yahoo_logo_large-100044513-large.jpg",
+    "url":"http://news.yahoo.com/rss/topstories"
+  }
+  ]
+},
+{
+  "name":"Sport",
+  "feeds":[{
+    "name":"BBC Sports",
+    "image":"https://m.files.bbci.co.uk/modules/bbc-morph-sport-opengraph/1.1.1/images/bbc-sport-logo.png",
+    "url":"http://feeds.bbci.co.uk/sport/rss.xml?edition=int#"
+  },
+  {
+    "name":"ESPN",
+    "image":"https://ore.wsj.net/fp/assets/images/ico/WSJ_facebook.png",
+    "url":"http://online.wsj.com/xml/rss/3_7011.xml"
+  },
+  {
+    "name":"NBA.com",
+    "image":"https://www.nba.com/themes/custom/league/assets/images/video/nbaVideoGeneric1200x675.png",
+    "url":"http://www.nba.com/rss/nba_rss.xml"
+  },
+  {
+    "name":"Yahoo",
+    "image":"https://cdn.cnn.com/cnn/.e/img/3.0/global/misc/cnn-logo.png",
+    "url":"http://online.wsj.com/xml/rss/3_7011.xml"
+  }
+  ]
+},
+{
+  "name":"Technology",
+  "feeds":[{
+    "name":"Techcrunch",
+    "image":"http://channels.roku.com/images/c180d379969647edb489ea4394736acf-hd.png",
+    "url":"http://feeds.feedburner.com/Techcrunch"
+  },
+  {
+    "name":"Wired",
+    "image":"https://www.wired.com/images/logos/wired.png",
+    "url":"http://feeds.wired.com/wired/index"
+  },
+  {
+    "name":"NYTimes – Technology",
+    "image":"https://www.nba.com/themes/custom/league/assets/images/video/nbaVideoGeneric1200x675.png",
+    "url":"http://feeds.nytimes.com/nyt/rss/Technology"
+  }]
+    
+},
+{
+  "name":"Business",
+  "feeds":[{
+    "name":"Atlantic Business Channel",
+    "image":"https://cdn.theatlantic.com/assets/static/b/theatlantic/img/default-thumbnail.png",
+    "url":"http://feeds.feedburner.com/AtlanticBusinessChannel"
+  },
+  {
+    "name":"Entrepeneur.com",
+    "image":"https://assets.entrepreneur.com/content/3x2/2000/20160408155709-default-hero-entrepreneur.png",
+    "url":"feeds.feedburner.com/entrepreneur/latest"
+  },
+  {
+    "name":"Harvard Business",
+    "image":"https://theartofapplying.com/wp-content/uploads/2018/07/Harvard-22-Program-Header.jpg",
+    "url":"http://feeds.harvardbusiness.org/harvardbusiness/"
+  }]    
+}]

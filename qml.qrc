@@ -1,5 +1,57 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>data/sources.json</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>images/arrow.png</file>
+        <file>images/arrow@2x.png</file>
+        <file>images/arrow@3x.png</file>
+        <file>images/arrow@4x.png</file>
+        <file>images/arrows.png</file>
+        <file>images/arrows@2x.png</file>
+        <file>images/arrows@3x.png</file>
+        <file>images/arrows@4x.png</file>
+        <file>images/Asia.jpg</file>
+        <file>images/back.png</file>
+        <file>images/back@2x.png</file>
+        <file>images/back@3x.png</file>
+        <file>images/back@4x.png</file>
+        <file>images/Business.jpg</file>
+        <file>images/drawer.png</file>
+        <file>images/drawer@2x.png</file>
+        <file>images/drawer@3x.png</file>
+        <file>images/drawer@4x.png</file>
+        <file>images/Entertainment.jpg</file>
+        <file>images/Europe.jpg</file>
+        <file>images/Health.jpg</file>
+        <file>images/menu.png</file>
+        <file>images/menu@2x.png</file>
+        <file>images/menu@3x.png</file>
+        <file>images/menu@4x.png</file>
+        <file>images/Politics.jpg</file>
+        <file>images/Science.jpg</file>
+        <file>images/scrollbar.png</file>
+        <file>images/Sports.jpg</file>
+        <file>images/Technology.jpg</file>
+        <file>images/TopStories.jpg</file>
+        <file>images/USNational.jpg</file>
+        <file>images/World.jpg</file>
+        <file>content/CategoryDelegate.qml</file>
+        <file>content/BusyIndicator.qml</file>
+        <file>content/NewsDelegate.qml</file>
+        <file>content/RssFeeds.qml</file>
+        <file>content/SideMenu.qml</file>
+        <file>images/home.svg</file>
+        <file>images/history.svg</file>
+        <file>images/favorites.svg</file>
+        <file>content/HomePage.qml</file>
+        <file>content/HistoryPage.qml</file>
+        <file>content/FavoritePage.qml</file>
+        <file>content/CreateAccountPage.qml</file>
+        <file>Helpers.qml</file>
+        <file>qmldir</file>
+        <file>content/ContentPage.qml</file>
+        <file>images/info.svg</file>
+        <file>content/AboutPage.qml</file>
     </qresource>
 </RCC>

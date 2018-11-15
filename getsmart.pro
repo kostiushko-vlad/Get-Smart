@@ -1,4 +1,4 @@
-QT += quick
+QT += quick quickcontrols2 qml svg xml xmlpatterns network
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -27,3 +27,15 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+#LIBS += -L$$PWD/ -llibcryptoMDd
+#PRE_TARGETDEPS += $$PWD/libcryptoMDd.lib
+#PRE_TARGETDEPS += $$PWD/libsslMDd.lib
+#LIBS += -L$$PWD/ -llibsslMDd
+DISTFILES += \
+    qmldir
+
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_EXTRA_LIBS = \
+        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libcrypto.so \
+        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libssl.so
+}
