@@ -6,11 +6,15 @@ Item {
     property string userFirstName
     property string userSecondName
     property string userEmail
+    property string timeFrom
+    property string timeTo
     Settings {
         id:settings
         property alias userFirstName: helpers.userFirstName
         property alias userSecondName: helpers.userSecondName
         property alias userEmail: helpers.userEmail
+        property alias timeFrom: helpers.timeFrom
+        property alias timeTo: helpers.timeTo
 
     }
 

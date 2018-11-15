@@ -53,5 +53,7 @@
         <file>content/ContentPage.qml</file>
         <file>images/info.svg</file>
         <file>content/AboutPage.qml</file>
+        <file>content/SettingsPage.qml</file>
+        <file>images/settings.svg</file>
     </qresource>
 </RCC>

@@ -53,6 +53,7 @@ Drawer {
                     ListElement { title: "Home"; image:"qrc:/images/home.svg"; source: "qrc:/content/HomePage.qml" }
                     ListElement { title: "History"; image:"qrc:/images/history.svg"; source: "qrc:/content/HistoryPage.qml" }
                     ListElement { title: "Saved For Later"; image:"qrc:/images/favorites.svg"; source: "qrc:/content/FavoritePage.qml" }
+                     ListElement { title: "Settings"; image:"qrc:/images/settings.svg"; source: "qrc:/content/SettingsPage.qml" }
 
                 }
 
