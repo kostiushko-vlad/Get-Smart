@@ -19,7 +19,7 @@ ApplicationWindow {
     header: ToolBar {
         Material.foreground: "white"
         Material.primary: "#FAFAFA"
-        visible: !startPage.visible
+        visible: !startUpView.visible
 
         RowLayout {
             spacing: 0
@@ -59,8 +59,8 @@ ApplicationWindow {
 
             ComboBox {
                 id: categoryLabel
+                visible: Helpers.categoryLabelVisible
                 flat: true
-                model: sources
                 font.pixelSize: 14
                 textRole: "name"
                 Layout.topMargin: 5
@@ -68,23 +68,32 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignLeft
                 Material.foreground: "#979797"
                 onCurrentIndexChanged: {
-                    homePage.currentFeed = model.get(currentIndex).feed
+                    console.log("Current index "+currentIndex)
+                    if(currentIndex > -1){
+                        Helpers.currentFeed = Helpers.feedsModel.get(currentIndex).feed
+                    }
                 }
-
+                Connections {
+                    target: Helpers
+                    onFeedsModelUpdated:{
+                        categoryLabel.model = Helpers.feedsModel
+                        categoryLabel.currentIndex = 0
+                    }
+                }
+            }
+        }
+    }  
+    StackView {
+        id:startUpView
+        anchors.fill: parent
+        initialItem: CreateAccountPage {
+            id:startPage
+            onRegistered: {
+                startUpView.push("qrc:/content/CategorySelectionPage.qml")
             }
         }
     }
-    RssFeeds {
-        id:sources
 
-    }
-    CreateAccountPage {
-        id:startPage
-        anchors.fill: parent
-        onRegistered: {
-            startPage.visible = false
-        }
-    }
     SideMenu {
         id: sideMenu
         enabled: !startPage.visible
@@ -97,11 +106,7 @@ ApplicationWindow {
     }
     StackView {
         id:mainStackView
-        visible: !startPage.visible
-        anchors.fill: parent
-        initialItem: HomePage {
-            id:homePage
-
-        }
+        visible: false
+        anchors.fill: parent       
     }
 }

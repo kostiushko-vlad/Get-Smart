@@ -51,16 +51,16 @@
 import QtQuick 2.2
 
 ListModel {
-    ListElement { name: "Top Stories"; feed: "news.yahoo.com/rss/topstories"; image: "../images/TopStories.jpg" }
-    ListElement { name: "World"; feed: "news.yahoo.com/rss/world"; image: "../images/World.jpg" }
-    ListElement { name: "Europe"; feed: "news.yahoo.com/rss/europe"; image: "../images/Europe.jpg" }
-    ListElement { name: "Asia"; feed: "news.yahoo.com/rss/asia"; image: "../images/Asia.jpg" }
-    ListElement { name: "U.S. National"; feed: "news.yahoo.com/rss/us"; image: "../images/USNational.jpg"  }
-    ListElement { name: "Politics"; feed: "news.yahoo.com/rss/politics"; image: "../images/Politics.jpg" }
-    ListElement { name: "Business"; feed: "news.yahoo.com/rss/business"; image: "../images/Business.jpg" }
-    ListElement { name: "Technology"; feed: "news.yahoo.com/rss/tech"; image: "../images/Technology.jpg" }
-    ListElement { name: "Entertainment"; feed: "news.yahoo.com/rss/entertainment"; image: "../images/Entertainment.jpg" }
-    ListElement { name: "Health"; feed: "news.yahoo.com/rss/health"; image: "../images/Health.jpg" }
-    ListElement { name: "Science"; feed: "news.yahoo.com/rss/science"; image: "../images/Science.jpg" }
-    ListElement { name: "Sports"; feed: "news.yahoo.com/rss/sports"; image: "../images/Sports.jpg" }
+    ListElement { key:1; name: "Top Stories"; feed: "news.yahoo.com/rss/topstories"; image: "../images/TopStories.jpg" }
+    ListElement { key:2; name: "World"; feed: "news.yahoo.com/rss/world"; image: "../images/World.jpg" }
+    ListElement { key:3; name: "Europe"; feed: "news.yahoo.com/rss/europe"; image: "../images/Europe.jpg" }
+    ListElement { key:4; name: "Asia"; feed: "news.yahoo.com/rss/asia"; image: "../images/Asia.jpg" }
+    ListElement { key:5; name: "U.S. National"; feed: "news.yahoo.com/rss/us"; image: "../images/USNational.jpg"  }
+    ListElement { key:6; name: "Politics"; feed: "news.yahoo.com/rss/politics"; image: "../images/Politics.jpg" }
+    ListElement { key:7; name: "Business"; feed: "news.yahoo.com/rss/business"; image: "../images/Business.jpg" }
+    ListElement { key:8; name: "Technology"; feed: "news.yahoo.com/rss/tech"; image: "../images/Technology.jpg" }
+    ListElement { key:9; name: "Entertainment"; feed: "news.yahoo.com/rss/entertainment"; image: "../images/Entertainment.jpg" }
+    ListElement { key:10; name: "Health"; feed: "news.yahoo.com/rss/health"; image: "../images/Health.jpg" }
+    ListElement { key:11; name: "Science"; feed: "news.yahoo.com/rss/science"; image: "../images/Science.jpg" }
+    ListElement { key:12; name: "Sports"; feed: "news.yahoo.com/rss/sports"; image: "../images/Sports.jpg" }
 }

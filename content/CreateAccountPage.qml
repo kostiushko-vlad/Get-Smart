@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.3
 import "../"
-Item {
+BasePage {
     id:accountPage
     anchors.fill: parent
     signal registered()
@@ -21,6 +21,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Create an account"
                 font.pixelSize: 23
+                color: Helpers.mainColor
             }
         }
         TextField {
@@ -41,7 +42,7 @@ Item {
         Button {
             Layout.topMargin: 10
             Layout.fillWidth: true
-            text: "Anmelden"
+            text: "Accept"
             Material.background: Material.Blue
             Material.foreground: "white"
             onClicked: {

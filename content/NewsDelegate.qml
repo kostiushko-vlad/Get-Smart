@@ -57,7 +57,7 @@ Item {
     id: delegate
     MouseArea {
         anchors.fill: parent
-        onClicked: mainStackView.push("qrc:/content/ContentPage.qml",{newsUrl:url})
+        onClicked: mainStackView.push("qrc:/content/ContentPage.qml",{newsUrl:link})
     }
     // Returns a string representing how long ago an event occurred
     function timeSinceEvent(pubDate) {

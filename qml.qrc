@@ -55,5 +55,8 @@
         <file>content/AboutPage.qml</file>
         <file>content/SettingsPage.qml</file>
         <file>images/settings.svg</file>
+        <file>content/CategorySelectionPage.qml</file>
+        <file>content/BasePage.qml</file>
+        <file>images/selected.svg</file>
     </qresource>
 </RCC>

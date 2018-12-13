@@ -49,51 +49,68 @@
 ****************************************************************************/
 
 import QtQuick 2.2
-
+import QtGraphicalEffects 1.0
 Rectangle {
-    id: delegate
-
-    property bool selected: ListView.isCurrentItem
+    id: delegate  
+    property bool selected: false
     property real itemSize
-    width: itemSize
-    height: itemSize
+    property string title: "title"
+    property string imageUrl
 
     Image {
-        anchors.centerIn: parent
-        source: image
-    }
+        id:categoryImage
+        anchors.fill: parent
+        source: imageUrl
+        visible: false
+        fillMode: Image.PreserveAspectCrop
 
+    }
+    Rectangle {
+        id: mask
+        anchors.fill: parent
+        visible: false
+        radius: 4
+    }
+    OpacityMask {
+        anchors.fill: categoryImage
+        source: categoryImage
+        maskSource: mask
+    }
+    Rectangle {
+        id:higlightRectangle
+        radius: 4
+        z:1
+        anchors.fill: parent
+        border.width: selected ? 2 : 0
+        border.color: "#81D4FA"
+        color: "transparent"
+    }
     Text {
         id: titleText
-
-        anchors {
-            left: parent.left; leftMargin: 20
-            right: parent.right; rightMargin: 20
-            top: parent.top; topMargin: 20
-        }
-
-        font { pixelSize: 18; bold: true }
-        text: name
-        color: selected ? "#ffffff" : "#ebebdd"
+        anchors.top: parent.top
+        anchors.topMargin: 5
+        anchors.horizontalCenter: parent.horizontalCenter
+        font { pixelSize: 12; bold: true }
+        text: delegate.title
+        color: selected ? "#81D4FA" : "white"
         scale: selected ? 1.15 : 1.0
         Behavior on color { ColorAnimation { duration: 150 } }
-        Behavior on scale { PropertyAnimation { duration: 300 } }
+        Behavior on scale { PropertyAnimation { duration: 300; easing.type: Easing.InOutBack } }
     }
-
-    BusyIndicator {
-        scale: 0.8
-        visible: delegate.ListView.isCurrentItem && window.loading
+    Image {
+        id:selectedIcon
         anchors.centerIn: parent
+        scale: selected ? 1 : 0
+        source: "../images/selected.svg"
+        width: 40
+        height: 40
+        Behavior on scale { PropertyAnimation { duration: 300; easing.type: Easing.InOutBack } }
     }
 
     MouseArea {
-        anchors.fill: delegate
+        anchors.fill: parent
         onClicked: {
-            delegate.ListView.view.currentIndex = index
-            if (window.currentFeed == feed)
-                feedModel.reload()
-            else
-                window.currentFeed = feed
+            selected = !selected
         }
     }
 }

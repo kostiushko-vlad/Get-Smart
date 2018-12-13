@@ -1,10 +1,13 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
-
-Item {
+import "../"
+BasePage {
     id:homePage
-    property bool isActive: false
-    property string currentFeed
+    onIsActiveChanged:{
+        console.log("Categoyr ComboBOx visible " + isActive)
+        Helpers.categoryLabelVisible = isActive
+    }
+    property string currentFeed: Helpers.currentFeed
     XmlListModel {
         id: feedModel
 
@@ -29,6 +32,7 @@ Item {
         clip: true
         model: feedModel
         delegate: NewsDelegate {
+
             width: parent.width
             height: 80
         }
