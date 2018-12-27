@@ -10,8 +10,7 @@ Item {
     property string userFirstName
     property string userSecondName
     property string userEmail
-    property string timeFrom
-    property string timeTo
+    property var time
     property var selectedCategories:[]
     property string currentFeed:""
     property var feedsModel: filteredListModel
@@ -21,10 +20,9 @@ Item {
         property alias userFirstName: helpers.userFirstName
         property alias userSecondName: helpers.userSecondName
         property alias userEmail: helpers.userEmail
-        property alias timeFrom: helpers.timeFrom
-        property alias timeTo: helpers.timeTo
-        property alias selectedCategories: helpers.selectedCategories
+//        property alias selectedCategories: helpers.selectedCategories
         property alias currentFeed: helpers.currentFeed
+        property alias time: helpers.time
     }
 
     onUpdateCategories: {

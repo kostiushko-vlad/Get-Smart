@@ -32,10 +32,21 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #PRE_TARGETDEPS += $$PWD/libsslMDd.lib
 #LIBS += -L$$PWD/ -llibsslMDd
 DISTFILES += \
-    qmldir
+    qmldir \
+    android/AndroidManifest.xml
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
-    ANDROID_EXTRA_LIBS = \
-        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libcrypto.so \
-        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libssl.so
+#    ANDROID_EXTRA_LIBS = \
+#        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libcrypto.so \
+#        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libssl.so
+}
+android {
+    QT += androidextras
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+OTHER_FILES += \
+    android/AndroidManifest.xml \
+    android/res/drawable-hdpi/icon.png \
+    android/res/drawable-mdpi/icon.png \
+    android/res/drawable-xhdpi/icon.png \
+    android/res/drawable-xxhdpi/icon.png \
 }

@@ -58,5 +58,7 @@
         <file>content/CategorySelectionPage.qml</file>
         <file>content/BasePage.qml</file>
         <file>images/selected.svg</file>
+        <file>content/TimeSettingPage.qml</file>
+        <file>content/TimePicker.qml</file>
     </qresource>
 </RCC>

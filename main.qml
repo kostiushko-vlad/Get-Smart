@@ -88,9 +88,7 @@ ApplicationWindow {
         anchors.fill: parent
         initialItem: CreateAccountPage {
             id:startPage
-            onRegistered: {
-                startUpView.push("qrc:/content/CategorySelectionPage.qml")
-            }
+
         }
     }
 

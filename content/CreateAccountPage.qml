@@ -6,8 +6,9 @@ import "../"
 BasePage {
     id:accountPage
     anchors.fill: parent
-    signal registered()
+
     ColumnLayout {
+        id:content
         anchors.centerIn: parent
         width: implicitWidth
         height: implicitHeight
@@ -25,28 +26,37 @@ BasePage {
             }
         }
         TextField {
+            width: content.width
             Layout.fillWidth: true
             placeholderText: "Name"
-            onEditingFinished: Helpers.userFirstName = text
+            onEditingFinished: Helpers.userFirstName = text            
         }
         TextField {
+            id: push
+            width: content.width
             Layout.fillWidth: true
             placeholderText: "Nachname"
             onEditingFinished: Helpers.userSecondName = text
         }
         TextField {
+            id:mailText
+            selectByMouse: true
+            width: content.width
             Layout.fillWidth: true
             placeholderText: "Email"
+            validator: RegExpValidator { regExp:/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/ }
             onEditingFinished: Helpers.userEmail = text
         }
         Button {
+            enabled: mailText.acceptableInput
+            width: content.width
             Layout.topMargin: 10
             Layout.fillWidth: true
             text: "Accept"
             Material.background: Material.Blue
             Material.foreground: "white"
             onClicked: {
-                accountPage.registered()
+                 startUpView.push("qrc:/content/CategorySelectionPage.qml")
             }
         }
     }

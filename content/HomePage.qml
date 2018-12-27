@@ -1,8 +1,13 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 import QtQuick.XmlListModel 2.0
 import "../"
 BasePage {
     id:homePage
+    Rectangle {
+        anchors.fill: parent
+        color:"white"
+    }
     onIsActiveChanged:{
         console.log("Categoyr ComboBOx visible " + isActive)
         Helpers.categoryLabelVisible = isActive
@@ -21,9 +26,24 @@ BasePage {
         XmlRole { name: "image"; query: "media:content/@url/string()" }
         XmlRole { name: "link"; query: "link/string()" }
         XmlRole { name: "pubDate"; query: "pubDate/string()" }
+        onProgressChanged: {
+
+        }
+        onStatusChanged: {
+            console.log("Status changed "+status)
+            busyIndicator.visible = status != XmlListModel.Ready
+        }
+    }
+    BusyIndicator {
+        id:busyIndicator
+        width: 100
+        height: 100
+        anchors.centerIn: parent
+        running: true
     }
     ListView {
         id: list
+        visible: !busyIndicator.visible
         anchors.fill: parent
         anchors.topMargin: 15
         anchors.leftMargin: 10

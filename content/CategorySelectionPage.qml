@@ -52,20 +52,32 @@ BasePage {
                 }
             }
         }
-        Button {
-            id: nextButton
-            enabled: false
-            Layout.topMargin: 10
-            Layout.fillWidth: true
-            text: "Accept"
-            Material.background: Material.Blue
-            Material.foreground: "white"
-            onClicked: {
-                startUpView.visible = false
-                mainStackView.visible = true
-                mainStackView.push("qrc:/content/HomePage.qml")
-
+        RowLayout {
+            Button {
+                id: nextButton
+                enabled: false
+                Layout.topMargin: 10
+                Layout.fillWidth: true
+                text: "Accept"
+                Material.background: Material.Blue
+                Material.foreground: "white"
+                onClicked: {
+                    startUpView.push("qrc:/content/TimeSettingPage.qml")
+                }
+            }
+            Button {
+                id: backButton
+                Layout.topMargin: 10
+                Layout.fillWidth: true
+                text: "Back"
+                Material.background: Material.Blue
+                Material.foreground: "white"
+                onClicked: {
+                    startUpView.pop()
+                }
             }
         }
+
+
     }
 }

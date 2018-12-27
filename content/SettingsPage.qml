@@ -28,7 +28,7 @@ BasePage {
             ComboBox {
                 id: comboBox
                 displayText: "Time from"
-                 font.pixelSize: 12
+                font.pixelSize: 12
                 onCurrentTextChanged: Helpers.timeFrom=comboBox.currentText
             }
 
