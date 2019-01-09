@@ -25,17 +25,6 @@ Drawer {
                 focus: true
                 currentIndex: -1
 
-                footer: ItemDelegate {
-                    width: parent.width
-                    text: "About"
-                    icon.source: "qrc:/images/info.svg"
-                    display: AbstractButton.TextBesideIcon
-                    highlighted: ListView.isCurrentItem
-                    Material.foreground: "#dedede"
-                    onClicked: {
-
-                    }
-                }
                 delegate: ItemDelegate {
                     width: parent.width
                     text: model.title
@@ -54,6 +43,7 @@ Drawer {
                     ListElement { title: "History"; image:"qrc:/images/history.svg"; source: "qrc:/content/HistoryPage.qml" }
 //                    ListElement { title: "Saved For Later"; image:"qrc:/images/favorites.svg"; source: "qrc:/content/FavoritePage.qml" }
                      ListElement { title: "Settings"; image:"qrc:/images/settings.svg"; source: "qrc:/content/SettingsPage.qml" }
+                     ListElement { title: "About"; image:"qrc:/images/info.svg"; source: "qrc:/content/AboutPage.qml" }
 
                 }
 

@@ -25,30 +25,11 @@ BasePage {
                 color: Helpers.mainColor
             }
         }
-        TextField {
-            width: content.width
-            Layout.fillWidth: true
-            placeholderText: "Name"
-            onEditingFinished: Helpers.userFirstName = text            
+        CreateAccountForm {
+            width: implicitWidth
+            height: implicitHeight
         }
-        TextField {
-            id: push
-            width: content.width
-            Layout.fillWidth: true
-            placeholderText: "Nachname"
-            onEditingFinished: Helpers.userSecondName = text
-        }
-        TextField {
-            id:mailText
-            selectByMouse: true
-            width: content.width
-            Layout.fillWidth: true
-            placeholderText: "Email"
-            validator: RegExpValidator { regExp:/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/ }
-            onEditingFinished: Helpers.userEmail = text
-        }
-        Button {
-            enabled: mailText.acceptableInput
+        Button {            
             width: content.width
             Layout.topMargin: 10
             Layout.fillWidth: true

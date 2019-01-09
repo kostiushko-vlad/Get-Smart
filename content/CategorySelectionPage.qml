@@ -7,7 +7,8 @@ import "../"
 BasePage {
     id: categorySelectionPage
     ColumnLayout {
-        anchors.centerIn: parent
+        anchors.fill: parent
+        anchors.margins: 20
         width: implicitWidth
         height: implicitHeight
         Rectangle {
@@ -23,48 +24,10 @@ BasePage {
                 color: Helpers.mainColor
             }
         }
-        GridView {
-            id: gridView
-            Layout.alignment: Qt.AlignHCenter
-            width: categorySelectionPage.width - 20
-            height: cellHeight * rssFeeds.count / 3
-            anchors.margins: 5
-            model: RssFeeds {
-                id:rssFeeds
-            }
-            cellWidth: gridView.width / 3
-            cellHeight: 120
-            delegate: CategoryDelegate {
-                width: gridView.cellWidth - 8
-                height: gridView.cellHeight - 8
-                title: model.name
-                imageUrl: model.image
-                onSelectedChanged: {
-                    if (selected) {
-                        Helpers.selectedCategories.push(model.key)
-                    } else {
-                        var key = Helpers.selectedCategories.indexOf(model.key)
-                        Helpers.selectedCategories.splice(key, 1)
-                    }
-                    Helpers.updateCategories()
-                    nextButton.enabled = Helpers.selectedCategories.length > 0
-                    console.log("Selected Categories changed " + Helpers.selectedCategories)
-                }
-            }
+        CategorySelectionForm {
+            Layout.fillWidth: true
         }
         RowLayout {
-            Button {
-                id: nextButton
-                enabled: false
-                Layout.topMargin: 10
-                Layout.fillWidth: true
-                text: "Accept"
-                Material.background: Material.Blue
-                Material.foreground: "white"
-                onClicked: {
-                    startUpView.push("qrc:/content/TimeSettingPage.qml")
-                }
-            }
             Button {
                 id: backButton
                 Layout.topMargin: 10
@@ -76,8 +39,22 @@ BasePage {
                     startUpView.pop()
                 }
             }
+            Button {
+                id: nextButton
+                enabled: false
+                Layout.topMargin: 10
+                Layout.fillWidth: true
+                text: "Accept"
+                Material.background: Material.Blue
+                Material.foreground: "white"
+                onClicked: {
+                    startUpView.push("qrc:/content/TimeSelectionPage.qml")
+                }
+                Connections {
+                    target: Helpers
+                    onFeedsModelUpdated:nextButton.enabled = Helpers.selectedCategories.length > 0
+                }
+            }
         }
-
-
     }
 }

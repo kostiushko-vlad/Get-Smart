@@ -24,12 +24,9 @@ BasePage {
                 color: Helpers.mainColor
             }
         }
-        TimePicker {
-            id: timePicker
-            height: 200
-            width: 200
-            onTimeChanged: Helpers.time = timePicker.time
-        }
+       TimeSelectionForm {
+
+       }
     }
     RowLayout {
         anchors.left: parent.left
@@ -40,18 +37,6 @@ BasePage {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 15
         Button {
-            id: nextButton
-            Layout.fillWidth: true
-            text: "Accept"
-            Material.background: Material.Blue
-            Material.foreground: "white"
-            onClicked: {
-                startUpView.visible = false
-                mainStackView.visible = true
-                mainStackView.push("qrc:/content/HomePage.qml")
-            }
-        }
-        Button {
             id: backButton
             Layout.fillWidth: true
             text: "Back"
@@ -61,5 +46,19 @@ BasePage {
                 startUpView.pop()
             }
         }
+        Button {
+            id: nextButton
+            Layout.fillWidth: true
+            text: "Accept"
+            Material.background: Material.Blue
+            Material.foreground: "white"
+            onClicked: {
+                startUpView.visible = false
+                mainStackView.visible = true
+
+                Helpers.registered = true
+            }
+        }
+
     }
 }

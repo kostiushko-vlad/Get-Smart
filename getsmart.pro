@@ -1,4 +1,4 @@
-QT += quick quickcontrols2 qml svg xml xmlpatterns network
+QT += quick quickcontrols2 qml svg xml xmlpatterns network webview
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -13,7 +13,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+    notifcator/notificator.cpp \
+    notifcator/notificator_android.cpp \
+    notifcator/myguiapplication.cpp \
+    notifcator/mainwindow.cpp
 
 RESOURCES += qml.qrc
 
@@ -33,12 +37,21 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #LIBS += -L$$PWD/ -llibsslMDd
 DISTFILES += \
     qmldir \
-    android/AndroidManifest.xml
+    android/AndroidManifest.xml \
+    android/src/com/getsmart/at/FDMApplication.java \
+    android/src/com/getsmart/at/NativeActivity.java \
+    android/src/org/pwf/notificator/NotificatorBinding.java \
+    android/src/com/getsmart/at/AlarmReceiver.java \
+    android/build.gradle \
+    android/src/com/getsmart/at/NotificationIntentService.java \
+    android/src/com/getsmart/at/NotificationActivity.java
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
-#    ANDROID_EXTRA_LIBS = \
-#        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libcrypto.so \
-#        $$PWD/../../../V-PlaySDK/V-Play/android_armv7/lib/libssl.so
+    ANDROID_EXTRA_LIBS = \
+        $$PWD/android/libcrypto.so \
+        $$PWD/android/libssl.so
+
+
 }
 android {
     QT += androidextras
@@ -49,4 +62,14 @@ OTHER_FILES += \
     android/res/drawable-mdpi/icon.png \
     android/res/drawable-xhdpi/icon.png \
     android/res/drawable-xxhdpi/icon.png \
+    android/res/drawable-hdpi/idea.png \
+    android/res/drawable-mdpi/idea.png \
+    android/res/drawable-xhdpi/idea.png \
+    android/res/drawable-xxhdpi/idea.png
+
 }
+
+HEADERS += \
+    notifcator/notificator.h \
+    notifcator/myguiapplication.h \
+    notifcator/mainwindow.h

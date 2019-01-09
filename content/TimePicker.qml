@@ -2,6 +2,7 @@ import QtQuick 2.5
 
  Rectangle {
    id: timePicker
+   signal acceptTime(var positionViewIndex)
    color: "transparent"
    clip: true
    property int numberOfItems: 7
@@ -87,19 +88,23 @@ import QtQuick 2.5
          ]
        }
      }
-     Component.onCompleted: {
-       // Scrolls to middle of list
-       positionViewAtIndex(model * 0.5 - (listView.numberOfItems > 2 ? 1 : 0), ListView.SnapPosition)
-     }
+
      onMovementEnded: {
        var item = currentIndex % 96
        var hour = Math.floor(item / 4)
        var minute = (item - (hour * 4)) * 15
-       console.debug("TIME IS:", hour + ":" + minute)
+
        timePicker.time = {hour: hour, minute: minute}
+         console.debug("TIME IS:", hour + ":" + minute + "Current index "+(time && time.hour * 4 + time.minute / 15 || 0))
+       timePicker.acceptTime(listView.currentIndex)
      }
    }
+   Component.onCompleted: {
+     // Scrolls to middle of list
+     listView.positionViewAtIndex(listView.model * 0.5 - (listView.numberOfItems > 2 ? 1 : 0), ListView.SnapPosition)
+   }
    function setTime(newTime) {
+      console.log("POSITION "+(newTime && newTime.hour * 4 + newTime.minute / 15 || 0))
      listView.positionViewAtIndex(newTime && newTime.hour * 4 + newTime.minute / 15 || 0, ListView.Center)
      timePicker.time = newTime
    }

@@ -52,12 +52,42 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-
+import "../"
 Item {
     id: delegate
+    property string title:""
+    property string image:""
+    property string description:""
+    property string link:""
+
     MouseArea {
         anchors.fill: parent
-        onClicked: mainStackView.push("qrc:/content/ContentPage.qml",{newsUrl:link})
+        onClicked: {
+            webViewPage.newsUrl = link
+            console.log("Index clicked "+index)
+            var clickedItem = Helpers.feedItemsModel.get(index)
+            var history = []
+            history = Helpers.historyModel
+//            var containsItem = false
+//            for(var i =0; i < history.length; i++){
+//                    if(history[i].title === clickedItem.title){
+//                        containsItem = true
+//                        break
+//                    }
+//            }
+//            console.log("Contains "+containsItem)
+//            if(!containsItem){
+                history.push({"title":clickedItem.title,
+                                         "description":clickedItem.description,
+                                         "image":clickedItem.image,
+                                         "link":clickedItem.link
+                                        })
+                Helpers.historyModel = history
+           // }
+
+
+        //mainStackView.push("qrc:/content/ContentPage.qml",{newsUrl:link})
+        }
     }
     // Returns a string representing how long ago an event occurred
     function timeSinceEvent(pubDate) {

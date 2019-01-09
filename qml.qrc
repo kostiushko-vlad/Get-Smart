@@ -58,7 +58,12 @@
         <file>content/CategorySelectionPage.qml</file>
         <file>content/BasePage.qml</file>
         <file>images/selected.svg</file>
-        <file>content/TimeSettingPage.qml</file>
+        <file>content/TimeSelectionPage.qml</file>
         <file>content/TimePicker.qml</file>
+        <file>content/CreateAccountForm.qml</file>
+        <file>content/CategorySelectionForm.qml</file>
+        <file>content/TimeSelectionForm.qml</file>
+        <file>content/SettingsForm.qml</file>
+        <file>images/icon.svg</file>
     </qresource>
 </RCC>

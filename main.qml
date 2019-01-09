@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
+import Notificator 1.0
 import "content"
 
 ApplicationWindow {
@@ -13,10 +14,26 @@ ApplicationWindow {
     width: 360
     height: 640
     title: qsTr("Get Smart")
-    function dp(pixel){
-        return  Screen.pixelDensity * pixel
+    function dp(pixel) {
+        return Screen.pixelDensity * pixel
     }
+    Component.onCompleted: {
+
+        var date = new Date()
+
+        Notificator.schedule(date.getHours(), date.getMinutes() + 1, "Hi all",
+                             "News for you")
+        //Notificator.sendTag("test", "textcontent")
+    }
+
+    //    Connections {
+    //        target: Notificator
+    //        onNotificationOpenChanged:{
+
+    //        }
+    //    }
     header: ToolBar {
+        id: mainToolBar
         Material.foreground: "white"
         Material.primary: "#FAFAFA"
         visible: !startUpView.visible
@@ -68,27 +85,29 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignLeft
                 Material.foreground: "#979797"
                 onCurrentIndexChanged: {
-                    console.log("Current index "+currentIndex)
-                    if(currentIndex > -1){
-                        Helpers.currentFeed = Helpers.feedsModel.get(currentIndex).feed
+                    if (currentIndex > -1) {
+                        Helpers.currentFeed = Helpers.feedsModel.get(
+                                    currentIndex).feed
                     }
                 }
+
                 Connections {
                     target: Helpers
-                    onFeedsModelUpdated:{
+                    onFeedsModelUpdated: {
                         categoryLabel.model = Helpers.feedsModel
                         categoryLabel.currentIndex = 0
                     }
                 }
             }
         }
-    }  
+    }
+
     StackView {
-        id:startUpView
+        id: startUpView
+        visible: !Helpers.registered
         anchors.fill: parent
         initialItem: CreateAccountPage {
-            id:startPage
-
+            id: startPage
         }
     }
 
@@ -103,8 +122,42 @@ ApplicationWindow {
         }
     }
     StackView {
-        id:mainStackView
-        visible: false
-        anchors.fill: parent       
+        id: mainStackView
+        visible: Helpers.registered
+        anchors.fill: parent
+        initialItem: HomePage {
+        }
+        Component.onCompleted: {
+            if (visible) {
+                Helpers.feedsModel.updateModel()
+                categoryLabel.model = Helpers.feedsModel
+                categoryLabel.currentIndex = 0
+            }
+        }
     }
+    ContentPage {
+        id: webViewPage
+        visible: false
+        modal: true
+        closePolicy:  Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        width: parent.width
+        height: parent.height
+        z: 9999
+        onVisibleChanged: {
+            mainToolBar.visible = !webViewPage.visible
+        }
+    }
+    Connections {
+        target: GUI
+        onBack: {
+            console.log("On Back pressed")
+            if(webViewPage.opened) {
+                webViewPage.close()
+            } else {
+                 Qt.quit()
+            }
+        }
+    }
+
 }
+
